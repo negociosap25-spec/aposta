@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plataforma de Apostas (Diversão)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDKs (CDN) - necessários apenas se você usar o modo Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>BetFun — Apostas para Diversão</h1>
+      <div id="mode-badge">Modo: <span id="mode-name">Local</span></div>
+    </header>
+
+    <section class="top-row">
+      <div>
+        <button id="new-event-btn">➕ Criar Evento</button>
+        <button id="import-btn">📥 Importar JSON</button>
+        <button id="export-btn">📤 Exportar Backup</button>
+      </div>
+      <div id="user-info">
+        Usuário: <span id="user-id">-</span> | Saldo: <b id="user-balance">-</b>
+      </div>
+    </section>
+
+    <section id="create-event" class="card hidden">
+      <h2>Criar Evento</h2>
+      <label>Nome do Evento <input id="ev-name" /></label>
+      <label>Opções (separe por vírgula) <input id="ev-opts" placeholder="Ex: Time A, Time B, Empate" /></label>
+      <label>Data/Hora fim (opcional) <input id="ev-when" type="datetime-local"/></label>
+      <div class="row">
+        <button id="create-ev-confirm">Criar</button>
+        <button id="create-ev-cancel">Cancelar</button>
+      </div>
+    </section>
+
+    <section id="events" class="card">
+      <h2>Eventos</h2>
+      <div id="events-list"></div>
+    </section>
+
+    <section id="leaderboard" class="card">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-list"></div>
+    </section>
+
+    <footer>
+      <small>Feito para diversão — sem dinheiro real. Para usar online, cole sua configuração Firebase em cima do arquivo JS, veja instruções no código.</small>
+    </footer>
+  </div>
+
+  <!-- Placeholder: cole aqui sua configuração Firebase se quiser modo online.
+       Exemplo:
+       <script>
+         const FIREBASE_CONFIG = {
+           apiKey: "xxxx",
+           authDomain: "PROJECT.firebaseapp.com",
+           projectId: "PROJECT",
+           // ...
+         };
+       </script>
+  -->
+  <script src="app.js"></script>
+</body>
+</html>
